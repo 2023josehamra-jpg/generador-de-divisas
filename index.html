@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de Divisas - Dark Minimal</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="converter-box">
+    <!-- Header -->
+    <div class="top-bar">
+      <h2>Conversor Global</h2>
+      <div class="badge">En tiempo real</div>
+    </div>
+
+    <!-- Panel de Entrada Base -->
+    <div class="currency-card primary">
+      <div class="card-label">Monto a Enviar</div>
+      <div class="row">
+        <input type="number" id="fromAmount" value="500" placeholder="0.00">
+        <div class="currency-picker">
+          <select id="fromCurrency">
+            <option value="USD" selected>USD - Dólar EE.UU.</option>
+            <option value="EUR">EUR - Euro</option>
+            <option value="GBP">GBP - Libra</option>
+            <option value="ARS">ARS - Peso Arg</option>
+            <option value="MXN">MXN - Peso Mex</option>
+            <option value="BRL">BRL - Real</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botón de Inversión Central -->
+    <div class="swap-container">
+      <button id="swapBtn" class="swap-circle" title="Invertir Monedas">
+        &#8645;
+      </button>
+    </div>
+
+    <!-- Panel de Salida -->
+    <div class="currency-card secondary">
+      <div class="card-label">Monto Estimado Recibido</div>
+      <div class="row">
+        <input type="text" id="toAmount" readonly placeholder="0.00">
+        <div class="currency-picker">
+          <select id="toCurrency">
+            <option value="USD">USD - Dólar EE.UU.</option>
+            <option value="EUR" selected>EUR - Euro</option>
+            <option value="GBP">GBP - Libra</option>
+            <option value="ARS">ARS - Peso Arg</option>
+            <option value="MXN">MXN - Peso Mex</option>
+            <option value="BRL">BRL - Real</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Info Detallada -->
+    <div class="rate-details">
+      <div class="detail-row">
+        <span>Tasa de Cambio:</span>
+        <strong id="exchangeRateText">1 USD = 0.92 EUR</strong>
+      </div>
+      <div class="detail-row">
+        <span>Comisión Estimada (0.5%):</span>
+        <span id="feeText">$2.50 USD</span>
+      </div>
+    </div>
+
+    <!-- Gráfico Integrado -->
+    <div class="chart-wrapper">
+      <canvas id="currencyChart"></canvas>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
